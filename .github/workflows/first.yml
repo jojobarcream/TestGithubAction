@@ -19,7 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    environment: Enviroment_First
+    environment: Environment_First
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -27,9 +27,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Show TEST_SECRET
-        run: echo "The secret is $TEST_SECRET"
         env:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
+        run: echo "The secret is $TEST_SECRET"
           
       # Runs a single command using the runners shell
       - name: Run a one-line script
