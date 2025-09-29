@@ -29,7 +29,12 @@ jobs:
       - name: Show TEST_SECRET
         env:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}
-        run: [ "${TEST_SECRET}" -eq 1 ] && echo "one"
+        run: if [ "${TEST_SECRET}" -eq 1 ]; then
+                echo one
+              else
+                echo wrong
+              fi
+
           
       # Runs a single command using the runners shell
       - name: Run a one-line script
